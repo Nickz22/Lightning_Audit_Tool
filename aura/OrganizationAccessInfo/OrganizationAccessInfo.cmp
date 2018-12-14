@@ -1,0 +1,16 @@
+<aura:component implements="lightning:availableForFlowScreens">
+	<aura:attribute name="headerTitle" type="Aura.Component[]">
+        <div>
+           <p class="slds-text-heading_large"> 
+           	Organization
+           </p>
+        </div>
+    </aura:attribute>
+	<lightning:card iconName="action:leave_group" title="{!v.headerTitle}">
+		<div>
+			<p class="slds-text-body_regular"> 
+				An Ads API entity, an Organization is a legal entity created in Business Manager. Organizations are pushed from Business Manager to Salesforce upon creation, and typically need to be related to an account or opportunities in Salesforce by Sales. One Organization can have several children Ad Accounts related to it.
+			</p>
+		</div>
+	</lightning:card>
+</aura:component>

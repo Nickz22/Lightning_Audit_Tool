@@ -1,0 +1,16 @@
+<aura:component implements="lightning:availableForFlowScreens">
+	<aura:attribute name="headerTitle" type="Aura.Component[]">
+        <div>
+           <p class="slds-text-heading_large"> 
+            Ad Account
+           </p>
+        </div>
+    </aura:attribute>
+	<lightning:card iconName="action:defer" title="{!v.headerTitle}">
+		<div>
+			<p class="slds-text-body_regular"> 
+				An Ads API entity, An Ad Account always has a parent Organization. One Organization can have many children Ad Accounts. While the <b>Organization</b> holds legal/financial information about an advertiser, creation of ads on behalf of that advertiser is done via an <b>Ad Account</b>. Once they're created in Ads Manager, Ad Accounts are pushed to Salesforce where Sales routinely edits them, usually to take claim of and relate them to the correct Salesforce Opportunity.
+			</p>
+		</div>
+	</lightning:card>
+</aura:component>

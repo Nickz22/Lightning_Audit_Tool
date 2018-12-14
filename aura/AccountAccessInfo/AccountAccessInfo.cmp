@@ -1,0 +1,12 @@
+<aura:component implements="lightning:availableForFlowScreens">
+	<aura:attribute name="headerTitle" type="Aura.Component[]">
+        <div>
+           <p class="slds-text-heading_large"> 
+           	Account
+           </p>
+        </div>
+    </aura:attribute>
+	<lightning:card iconName="action:new_account" title="{!v.headerTitle}">
+		An Account is a legal entity with which Snap does business. Account-level information is used for all legal agreements generated in Salesforce (i.e. NDAs, Insertion Orders) between Snap and that entity. Sales routinely changes these details. <br/>System validation rules prevent editing of high-risk Account fields like <b>Snapchat AE</b>, and all Salesforce-generated contracts using Account details in their templates are Legal-approved before being sent to any third-party.
+	</lightning:card>
+</aura:component>

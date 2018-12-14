@@ -1,0 +1,12 @@
+<aura:component implements="lightning:availableForFlowScreens">
+	<aura:attribute name="headerTitle" type="Aura.Component[]">
+        <div>
+           <p class="slds-text-heading_large"> 
+           	Brand
+           </p>
+        </div>
+    </aura:attribute>
+	<lightning:card iconName="action:new_campaign" title="{!v.headerTitle}">
+		The Brand object represents a brand name (i.e. Kraft, 3 Musketeers) that can be tagged to an Opportunity's revenue for reporting. Brands are typically related to an Account (i.e. Mars Incorporated) and allow more granular reporting into that Account's revenue generation. All Brands are be approved by Sales Operations prior to being tagged to any opportunities. Noone but Sales Operations should need to edit or delete an existing Brand.
+	</lightning:card>
+</aura:component>

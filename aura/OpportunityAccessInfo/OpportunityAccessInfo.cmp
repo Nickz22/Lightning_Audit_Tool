@@ -1,0 +1,16 @@
+<aura:component implements="lightning:availableForFlowScreens">
+	<aura:attribute name="headerTitle" type="Aura.Component[]">
+        <div>
+           <p class="slds-text-heading_large"> 
+           	Opportunity
+           </p>
+        </div>
+    </aura:attribute>
+	<lightning:card iconName="action:new_opportunity" title="{!v.headerTitle}">
+		<div>
+			<p class="slds-text-body_regular"> 
+				An Opportunity is an identified revenue opportunity. It always has a parent Account, and can have either child Insertion Orders (Reserved - GBS only) or Opportunity Line Items (Auction Spend for GBS or GOS). Sales typically needs to edit several fields on an Opportunity during its lifetime. System validations exist to prevent any changes to Opportunity fields used for financial reporting.
+			</p>
+		</div>
+	</lightning:card>
+</aura:component>

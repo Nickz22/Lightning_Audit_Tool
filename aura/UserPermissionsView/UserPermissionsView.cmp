@@ -1,0 +1,25 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="GetProfilePermissions">
+	<aura:attribute name="permissionSnapshotArray" type="User_Permissions_Snapshot__c[]"/>
+	<aura:attribute name="helpTextShown" Type="boolean" default="false"/>
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:attribute name="headerTitle" type="Aura.Component[]">
+        
+            <p class="slds-text-heading_small"><b>Permission Information</b> </p>
+            <p aura:id="help-text" class="help-text-fade">(Click user's name to see System Permissions)</p>
+        
+    </aura:attribute>
+		<lightning:card title="{!v.headerTitle}">
+			 <div class="slds-scrollable slds-m-bottom_medium" style="box-shadow: 0px -25px 4px -24px #808000;" onmouseover="{!c.showHelpText}">
+			 <ui:scrollerWrapper class="sWrapTest">
+			 	<aura:if isTrue="{!empty(v.permissionSnapshotArray)}">
+			 		<p style="position: absolute; top: 50%; left: 40%;"> No Permissions Found </p>
+			 		<aura:set attribute="else">
+				 	 	<aura:iteration items="{!v.permissionSnapshotArray}" var="permissionSnapshot">
+			            	<c:ObjectPrivilege permissionSnapshot="{!permissionSnapshot}"/>
+			            </aura:iteration>
+			        </aura:set>
+			    </aura:if>
+			 </ui:scrollerWrapper>
+			</div>
+		</lightning:card>
+</aura:component>

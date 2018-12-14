@@ -1,0 +1,12 @@
+<aura:component implements="lightning:availableForFlowScreens">
+	<aura:attribute name="headerTitle" type="Aura.Component[]">
+        <div>
+           <p class="slds-text-heading_large"> 
+           	Upfront
+           </p>
+        </div>
+    </aura:attribute>
+	<lightning:card iconName="action:new_note" title="{!v.headerTitle}">
+		An Upfront is a large commercial spending agreement between Snap and an agency or advertiser, usually lasting one year or less. Upfronts always have a related Agreement by which both parties (Snap and advertiser) can agree to Upfront terms. An Upfront's details mirror the accompanying Agreement's details.
+	</lightning:card>
+</aura:component>

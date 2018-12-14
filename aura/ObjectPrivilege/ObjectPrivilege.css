@@ -1,0 +1,54 @@
+.THIS .compact{
+	margin-top: -1.5em;
+}
+
+.THIS .mouseover{
+
+	cursor: pointer;
+
+	padding-bottom: 7px;
+
+	-webkit-transition: padding-bottom .4s ease;
+	/*-moz-transition: padding-bottom .4s ease;*/
+}
+
+.THIS .mouseout{
+
+	padding-bottom: 0px;
+	-webkit-transition: padding-bottom .4s ease;
+
+}
+
+.THIS .vertical-text {
+
+	transform: rotate(90deg);
+    position: absolute;
+    top: 40%;
+    bottom: 3%;
+    right: -7.5%;
+    height: 1%;
+    width: 45%;
+    margin: 0 0 0 0;
+    padding-bottom: 22%;
+    color: #D3D3D3;
+   	-webkit-transition: color .4s ease;
+   	font-size: 1em;
+
+}
+
+.THIS .mouseover-vertical-text {
+
+	transform: rotate(90deg);
+	color: #808000;
+    position: absolute;
+    top: 40%;
+    bottom: 3%;
+    right: -7.5%;
+    height: 1%;
+    width: 45%;
+    margin: 0 0 0 0;
+    padding-bottom: 22%;
+	-webkit-transition: color .4s ease;
+   	font-size: 1em;
+
+}

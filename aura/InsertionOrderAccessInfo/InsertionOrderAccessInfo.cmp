@@ -1,0 +1,16 @@
+<aura:component implements="lightning:availableForFlowScreens">
+	<aura:attribute name="headerTitle" type="Aura.Component[]">
+        <div>
+           <p class="slds-text-heading_large"> 
+            Insertion Order
+           </p>
+        </div>
+    </aura:attribute>
+	<lightning:card iconName="action:google_news" title="{!v.headerTitle}">
+		<div>
+			<p class="slds-text-body_regular"> 
+				An Insertion Order (IO) represents an agreement between Snap and an advertiser or agency to serve managed ads with a guaranteed cost and impression count. Sales users routinely edit an IOs details prior to submitting it for AR approval; Sales users should never have to delete an IO. IOs are always approved by AR before any Placement's ads are served.
+			</p>
+		</div>
+	</lightning:card>
+</aura:component>

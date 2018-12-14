@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>43.0</apiVersion>
+    <description>Description of a Reviewer&apos;s Reviewee permissions, to be used in Utility Bar of Snap Audit Lightning App.</description>
+</AuraDefinitionBundle>

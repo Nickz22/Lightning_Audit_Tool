@@ -1,0 +1,12 @@
+<aura:component implements="lightning:availableForFlowScreens">
+	<aura:attribute name="headerTitle" type="Aura.Component[]">
+        <div>
+           <p class="slds-text-heading_large"> 
+           	Placement
+           </p>
+        </div>
+    </aura:attribute>
+	<lightning:card iconName="action:map" title="{!v.headerTitle}">
+		A Placement segments a parent Insertion Order's total ad-buy into specific Snapchat products (i.e. Snap Ads, Geofilters, etc.). Each Placement has it's own impression and targeting metrics, and is only editable prior to its parent Insertion Order's approval by A.R.. 
+	</lightning:card>
+</aura:component>

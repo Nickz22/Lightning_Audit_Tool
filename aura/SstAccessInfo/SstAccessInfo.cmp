@@ -1,0 +1,16 @@
+<aura:component implements="lightning:availableForFlowScreens">
+	<aura:attribute name="headerTitle" type="Aura.Component[]">
+        <div>
+           <p class="slds-text-heading_medium"> 
+           	Snapchat Sales Team
+           </p>
+        </div>
+    </aura:attribute>
+	<lightning:card iconName="action:add_photo_video" title="{!v.headerTitle}">
+		<div>
+			<p class="slds-text-body_regular"> 
+				The Snapchat Sales Team (SST) object represents a salesperson's ownership of an advertiser's revenue in a particular country. All SSTs have 3 things: a parent <b>User</b>, a parent <b>Account</b> and a <b>Country</b> field. <br/>Whenever an Opportunity is created under an Account with an SST, that Opportunity's commission-split is derived from the Account SST.
+			</p>
+		</div>
+	</lightning:card>
+</aura:component>

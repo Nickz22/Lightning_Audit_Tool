@@ -1,0 +1,114 @@
+<aura:component>
+	<aura:attribute name="permissionSnapshot" type="User_Permissions_Snapshot__c"/>
+    <aura:attribute name="getSysPermissions" type="Boolean" default="false"/>
+    <aura:attribute name="sysPermissionsList" type="List" />
+    <aura:attribute name="sideCardText" type="String" default="Object Permissions"/>
+	<aura:attribute name="headerTitle" type="Aura.Component[]">
+        <div style="margin-top: 5px;" >
+            <p aura:id="titleDiv" class="slds-text-heading_large slds-text-align_center" onclick="{!c.handleSysPermClick}" onmouseover="{!c.handleMouseOver}" onmouseout="{!c.handleMouseOff}"> 
+              <span style="margin-right:7px;">  <lightning:icon iconName="standard:work_order_item" alternativeText="Uar User Snapshot" /> </span>
+
+                {!v.permissionSnapshot.Name}
+            </p>
+        </div>
+    </aura:attribute>
+
+	<lightning:card variant="narrow" title="{!v.headerTitle}" footer="">
+     <p class="vertical-text slds-text-title_caps" id="vertical-text" aura:id="vertical-text" style=""> {!v.sideCardText} </p>
+
+        <aura:if isTrue="{!v.getSysPermissions}">
+
+        <div class="slds-grid slds-wrap slds-gutters" style="box-shadow: -1px 24px 3px -24px #808000; min-height: 125px;">
+
+          <div class="slds-m-bottom_large" id="access-card" onmouseover="{!c.handleMouseOverAccessCard}"
+        onmouseout="{!c.handleMouseOffAccessCard}" style="height: 85%; width: 92%; text-align: center;">
+
+            <aura:if isTrue="{! v.sysPermissionsList.length == 0}">
+                Hang tight! We're still grabbing this user's System Permissions.
+                <aura:set attribute="else">
+                    <aura:iteration items="{!v.sysPermissionsList}" var="sysPermission">
+
+                    <div class="slds-col slds-size_1-of-1" >
+
+                    <p class="slds-text-body_small"><em>{!sysPermission.key}</em> </p>
+
+                    </div>
+
+                    </aura:iteration>
+                </aura:set>
+            </aura:if>
+          </div>
+
+        </div>
+        <aura:set attribute="else">
+
+        <div class="slds-grid slds-wrap slds-gutters " style="box-shadow: -1px 24px 3px -24px #808000; min-height: 150px;">
+        
+          <div class="slds-m-bottom_large slds-m-left_medium" id="access-card" onmouseover="{!c.handleMouseOverAccessCard}" onmouseout="{!c.handleMouseOffAccessCard}" style="height: 85%; width: 90%; text-align: center;">
+
+  	        <div class="slds-col slds-size_1-of-1" >
+
+                <b><p class="slds-text-heading_small">Read</p> </b>
+                <aura:if isTrue="{! !empty(v.permissionSnapshot.Read_Access__c)}">
+                <p class="slds-text-body_medium">{!v.permissionSnapshot.Read_Access__c}</p>
+                <aura:set attribute="else">
+                  <p class="slds-text-body_medium">No Access</p>
+                </aura:set>
+                </aura:if>
+
+            </div>
+
+            <div class="slds-m-top_medium slds-col slds-size_1-of-1">
+
+                <b><p class="slds-text-heading_small">Edit</p> </b>
+                <aura:if isTrue="{! !empty(v.permissionSnapshot.Edit_Access__c)}">
+                <p class="slds-text-body_medium">{!v.permissionSnapshot.Edit_Access__c}</p>
+                <aura:set attribute="else">
+                  <p class="slds-text-body_medium">No Access</p>
+                </aura:set>
+                </aura:if>
+
+            </div>
+
+            <aura:if isTrue="{! !empty(v.permissionSnapshot.Delete_Access__c)}">
+            <div class=" slds-m-top_medium slds-col slds-size_1-of-1">
+
+                <b><p class="slds-text-heading_small slds-text-color_destructive">Delete</p> </b>
+                <p class="slds-text-body_medium">{!v.permissionSnapshot.Delete_Access__c}</p>
+                <aura:set attribute="else">
+                </aura:set>
+
+            </div>
+            </aura:if>
+            <aura:if isTrue="{! !empty(v.permissionSnapshot.View_All_Access__c)}">
+
+            <div class=" slds-m-top_medium slds-col slds-size_1-of-1">
+
+                <b><p class="slds-text-heading_small slds-text-color_destructive">View All</p> </b>
+                <p class="slds-text-body_medium">{!v.permissionSnapshot.View_All_Access__c}</p>
+                <aura:set attribute="else">
+                </aura:set>
+
+            </div>
+
+            </aura:if>
+
+            <aura:if isTrue="{! !empty(v.permissionSnapshot.Modify_All_Access__c)}">
+            <div class=" slds-m-top_medium slds-col slds-size_1-of-1">
+
+                <b><p class="slds-text-heading_small slds-text-color_destructive">Modify All</p> </b>
+                <p class="slds-text-body_medium">{!v.permissionSnapshot.Modify_All_Access__c}</p>
+                <aura:set attribute="else">
+                </aura:set>
+
+            </div>
+
+            </aura:if>
+
+          </div>
+
+        </div>	
+        </aura:set>
+    </aura:if>
+	</lightning:card>
+</aura:component>

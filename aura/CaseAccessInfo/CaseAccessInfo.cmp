@@ -1,0 +1,12 @@
+<aura:component implements="lightning:availableForFlowScreens">
+	<aura:attribute name="headerTitle" type="Aura.Component[]">
+        <div>
+           <p class="slds-text-heading_large"> 
+           	Case
+           </p>
+        </div>
+    </aura:attribute>
+	<lightning:card iconName="action:new_case" title="{!v.headerTitle}">
+		The Case object facilitates several Snap business processes, such as Campaign Exceptions, Kickstart Requests, Measurement Study Requests and Make Good Requests. As such, a large number of users require the ability to create and edit them. Cases that could potentially impact revenue (i.e. Campaign Exceptions, Make Goods) typically require 2 approvals before being finalized, and are locked by the system once approved. Users shouldn't ever need to delete Cases. 
+	</lightning:card>
+</aura:component>

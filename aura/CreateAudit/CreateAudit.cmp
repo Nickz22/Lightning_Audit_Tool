@@ -1,0 +1,102 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="initAuditReview">
+	<aura:attribute name="isButtonClicked" type="Boolean" default="false" />
+	<aura:attribute name="systemValues" type="Object" />	
+	<aura:attribute name="newAudit" type="Audit__c" default="{
+		'sobjectType':'Audit__c',
+		'Obtain_System_Lists_by__c':'',
+		'Finalize_Communicate_Review_Listing_By__c':'',
+		'Review_Listing_Finalized_by_Reviewer_s__c':'',
+		'Action_Items_Finalized_By__c':'',
+		'Action_Items_Validated_By__c':'',
+		'Sheets_Link__c':''
+		}"/>
+	<aura:attribute name="createAuditError" type="String"/>
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+	<force:recordData aura:id="auditCreator"
+					  targetFields="{!v.newAudit}"
+					  fields="Obtain_System_Lists_by__c,  Finalize_Communicate_Review_Listing_By__c, Review_Listing_Finalized_by_Reviewer_s__c, Action_Items_Finalized_By__c, Action_Items_Validated_By__c, Sheets_Link__c"
+					  targetError="{!v.createAuditError}"
+					  mode="EDIT"
+					  />
+
+
+    	<lightning:card title="">
+
+
+		<aura:if isTrue="{!v.isButtonClicked}">
+			<div>
+			 	<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+				    <div class="slds-modal__container">
+				      <header class="slds-modal__header">
+				        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+				          <span class="slds-assistive-text">Close</span>
+				        </button>
+				        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Create an Audit</h2>
+				      </header>
+				      <lightning:card >
+				      	 <div class="slds-m-bottom_x-large slds-p-horizontal_x-large" style="width: 100%; text-align: left;">
+				    		<div style="">
+				    			<p> Clicking <b>Save</b> fires the following actions:</p> 
+								<ol class="slds-list--ordered">					
+									<li>
+										Creation of one <b>Review</b> for each System selected in the <em>Audit System</em> field (including <b>Reviewers</b>, <b>UAR Users</b>, <b>Review Line Items</b> and <b> User Permission Snapshots </b> for each review). See <a href="https://snapchat.quip.com/qiOHACWOmcsf"> this document </a> for more details on the objects in this application.
+									</li>
+									<li>
+										<b>Reviewers</b> will receive an email letting them know the U.A.R. is now available for them to complete.
+									</li>
+								</ol>
+							</div>				    	
+				    	</div>
+				      	<div class="audit-modal" style="width:100%">
+							<lightning:recordEditForm
+					            onload="{!c.handleLoad}"
+					            objectApiName="Audit__c">
+					            <!-- the messages component is for error messages -->
+					            <lightning:messages />
+						    	<div class="slds-grid">
+							    	<div class="slds-col slds-size_6-of-10 slds-p-top_large">
+							            <lightning:inputField fieldName="System__c"
+							            						  value="{!v.newAudit.System__c}" />
+							        </div>
+							        <div class="slds-col slds-size_4-of-10 slds-p-left_x-large">
+							        	<lightning:inputField fieldName="Obtain_System_Lists_by__c"
+							            						  value="{!v.newAudit.Obtain_System_Lists_by__c}" />
+							            <lightning:inputField fieldName="Finalize_Communicate_Review_Listing_By__c"
+							            						  value="{!v.newAudit.Finalize_Communicate_Review_Listing_By__c}" />
+							            <lightning:inputField fieldName="Review_Listing_Finalized_by_Reviewer_s__c" 
+							            						  value="{!v.newAudit.Review_Listing_Finalized_by_Reviewer_s__c}"/>
+							            <lightning:inputField fieldName="Action_Items_Finalized_By__c"
+							            						  value="{!v.newAudit.Action_Items_Finalized_By__c}"/>
+							            <lightning:inputField fieldName="Action_Items_Validated_By__c"
+							            						  value="{!v.newAudit.Action_Items_Validated_By__c}"/>	
+							            <lightning:inputField fieldName="Sheets_Link__c"
+							            						  value="{!v.newAudit.Sheets_Link__c}"/>
+							            <lightning:inputField hidden="true"
+							            					   value="{!v.newAudit.Active__c}"
+							            				   fieldName="Active__c"
+							            				     default="true"/>
+
+						            </div>
+					        	</div>
+					        </lightning:recordEditForm>
+						</div>
+					  </lightning:card>
+			      	<footer class="slds-modal__footer">
+				        <lightning:button variant="neutral" aura:id="cancelButton" label="Cancel" onclick="{!c.buttonDispatcher}"/>
+				        <lightning:button variant="brand" aura:id="saveButton" label="Save" onclick="{!c.buttonDispatcher}"/>
+			      	</footer>
+			   		</div>
+  				</section>
+  			<div class="slds-backdrop slds-backdrop_open"></div>
+		</div>
+			<aura:set attribute="else">
+				<div class="slds-p-bottom_medium" style="text-align: center;">
+					<lightning:button value="Create Audit Button" label="Launch Audit Wizard" onclick="{!c.buttonDispatcher}"/>
+				</div>
+			</aura:set>
+		</aura:if>
+
+	</lightning:card>
+
+</aura:component>

@@ -1,0 +1,12 @@
+<aura:component implements="lightning:availableForFlowScreens">
+	<aura:attribute name="headerTitle" type="Aura.Component[]">
+        <div>
+           <p class="slds-text-heading_large"> 
+           	Agreement
+           </p>
+        </div>
+    </aura:attribute>
+	<lightning:card iconName="action:description" title="{!v.headerTitle}">
+		An Agreement is a legally binding document that is required for finalizing anything from an Insertion Order to a Creative Services Request. A .pdf containing Agreement and Account data is dynamically generated via button-click, and sent to the advertiser (after Legal approval of Agreement details). Sales typically needs to generate and/or edit an Agreement when closing a deal, but they shouldn't ever have to delete one.
+	</lightning:card>
+</aura:component>

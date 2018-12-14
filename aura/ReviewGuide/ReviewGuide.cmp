@@ -1,0 +1,29 @@
+<aura:component implements="lightning:availableForFlowScreens,flexipage:availableForAllPageTypes">
+	<lightning:card>
+		<div class="obj-access-guide">
+			<section>
+				<div style="margin-top: -7%; align: center;">
+					<p class="slds-text-heading_small">Tips for effective reviewing:</p><br/>
+				</div>
+			</section>
+			<section>
+				<div style="">
+					<ol class="slds-list--ordered">
+						<li>
+							The <b>My Pending User Access Reviews</b> list is dynamically filtered to show only your review lines.
+						</li>
+						<li>
+							The <b>Permission Information</b> card presents in-scope Object and System permissions for your reviewees - <b>click a user's name to toggle between Object and System permissions.</b>
+						</li>
+						<li>
+							Ask questions or leave feedback via the <b>Support / Feedback</b> tab above.
+						</li>
+						<li>
+							Click <b>Next</b> to find descriptions of in-scope objects.
+						</li>
+					</ol>
+				</div>
+			</section>
+		</div>
+	</lightning:card>
+</aura:component>
